@@ -53,8 +53,6 @@ class BetsKnockoutsController < ApplicationController
 
   def update
     @bets_knockout = BetsKnockout.find(params[:id])
-
-    @bets_knockout.user_id = params[:user_id]
     @bets_knockout.match_id = params[:match_id]
     @bets_knockout.bet_team_one = params[:bet_team_one]
     @bets_knockout.bet_team_two = params[:bet_team_two]
