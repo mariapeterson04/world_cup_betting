@@ -33,7 +33,7 @@
           Match
         </label>
 
-        <input type="text" id="match_id" name="match_id" placeholder="Match" class="form-control" value="<%= @bets_knockout.match_id %>">
+        <%= select_tag(:match_id, options_from_collection_for_select(MatchesKnockout.all, :id, :team_one, @bets_knockout.match_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for bet_team_one -->
