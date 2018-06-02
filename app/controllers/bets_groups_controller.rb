@@ -10,7 +10,7 @@ class BetsGroupsController < ApplicationController
   end
 
   def index
-    @bets_groups = BetsGroup.all
+    @bets_groups = current_user.bets_groups.page(params[:page]).per(10)
 
     render("bets_groups/index.html.erb")
   end
