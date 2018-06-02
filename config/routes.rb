@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Matches_group resource:
+  # CREATE
+  get "/matches_groups/new", :controller => "matches_groups", :action => "new"
+  post "/create_matches_group", :controller => "matches_groups", :action => "create"
+
+  # READ
+  get "/matches_groups", :controller => "matches_groups", :action => "index"
+  get "/matches_groups/:id", :controller => "matches_groups", :action => "show"
+
+  # UPDATE
+  get "/matches_groups/:id/edit", :controller => "matches_groups", :action => "edit"
+  post "/update_matches_group/:id", :controller => "matches_groups", :action => "update"
+
+  # DELETE
+  get "/delete_matches_group/:id", :controller => "matches_groups", :action => "destroy"
+  #------------------------------
+
   # Routes for the Bets_group resource:
   # CREATE
   get "/bets_groups/new", :controller => "bets_groups", :action => "new"

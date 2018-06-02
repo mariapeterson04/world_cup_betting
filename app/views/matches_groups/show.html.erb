@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Matches Group #<%= @matches_group.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Team one</dt>
+      <dd><%= @matches_group.team_one %></dd>
+
+      <dt>Team two</dt>
+      <dd><%= @matches_group.team_two %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @matches_group.date %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @matches_group.location %></dd>
+
+      <dt>Groupletter</dt>
+      <dd><%= @matches_group.groupletter %></dd>
+
+      <dt>City</dt>
+      <dd><%= @matches_group.city %></dd>
+
+      <dt>Goals one</dt>
+      <dd><%= @matches_group.goals_one %></dd>
+
+      <dt>Goals two</dt>
+      <dd><%= @matches_group.goals_two %></dd>
+
+      <dt>Winner</dt>
+      <dd><%= @matches_group.winner %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/matches_groups" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/matches_groups/<%= @matches_group.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_matches_group/<%= @matches_group.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
