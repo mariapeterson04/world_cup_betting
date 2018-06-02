@@ -1,4 +1,6 @@
 ActiveAdmin.register MatchesKnockout do
+
+ permit_params :team_one, :team_two, :date, :location, :round, :city, :goals_one, :goals_two, :winner
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
