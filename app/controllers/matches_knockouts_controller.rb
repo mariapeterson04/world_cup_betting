@@ -1,6 +1,7 @@
 class MatchesKnockoutsController < ApplicationController
   def index
-    @matches_knockouts = MatchesKnockout.page(params[:page]).per(10)
+    @q = MatchesKnockout.ransack(params[:q])
+    @matches_knockouts = @q.result(:distinct => true).includes(:bets_knockouts, :result, :users).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@matches_knockouts.where.not(:city_latitude => nil)) do |matches_knockout, marker|
       marker.lat matches_knockout.city_latitude
       marker.lng matches_knockout.city_longitude
