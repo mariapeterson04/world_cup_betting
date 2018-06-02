@@ -1,6 +1,10 @@
 class MatchesGroup < ApplicationRecord
   # Direct associations
 
+  has_one    :result,
+             :foreign_key => "bet_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
