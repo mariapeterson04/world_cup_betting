@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "bets_groups#index"
   # Routes for the Bets_knockout resource:
   # CREATE
   get "/bets_knockouts/new", :controller => "bets_knockouts", :action => "new"
