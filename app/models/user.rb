@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :matches,
+             :through => :bets_groups,
+             :source => :match
+
   # Validations
 
   # Include default devise modules. Others available are:

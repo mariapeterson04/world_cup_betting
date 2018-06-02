@@ -11,6 +11,10 @@ class MatchesGroup < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :bets_groups,
+             :source => :user
+
   # Validations
 
   validates :team_one, :presence => true
