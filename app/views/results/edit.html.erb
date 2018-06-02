@@ -51,7 +51,7 @@
           Bet
         </label>
 
-        <input type="text" id="bet_id" name="bet_id" placeholder="Bet" class="form-control" value="<%= @result.bet_id %>">
+        <%= select_tag(:bet_id, options_from_collection_for_select(BetsGroup.all, :id, :user_id, @result.bet_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
