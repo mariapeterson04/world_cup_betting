@@ -1,5 +1,5 @@
 class BetsGroupsController < ApplicationController
-  before_action :current_user_must_be_bets_group_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_bets_group_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_bets_group_user
     bets_group = BetsGroup.find(params[:id])
