@@ -5,4 +5,6 @@ class MatchesGroup < ApplicationRecord
 
   # Validations
 
+  validates :team_two, :presence => true
+
 end
