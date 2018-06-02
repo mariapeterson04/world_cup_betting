@@ -20,3 +20,127 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many bets_groups -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bets Groups
+      </li>
+
+      <% @user.bets_groups.each do |bets_group| %>
+        <li class="list-group-item">
+          <a href="/bets_groups/<%= bets_group.id %>">
+            <%= bets_group.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bets_groups/<%= bets_group.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bets_groups/<%= bets_group.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bets_group/<%= bets_group.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many bets_knockouts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bets Knockouts
+      </li>
+
+      <% @user.bets_knockouts.each do |bets_knockout| %>
+        <li class="list-group-item">
+          <a href="/bets_knockouts/<%= bets_knockout.id %>">
+            <%= bets_knockout.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bets_knockouts/<%= bets_knockout.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bets_knockouts/<%= bets_knockout.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bets_knockout/<%= bets_knockout.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many matches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Matches
+      </li>
+
+      <% @user.matches.each do |matches_group| %>
+        <li class="list-group-item">
+          <a href="/matches_groups/<%= matches_group.id %>">
+            <%= matches_group.team_one %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/matches_groups/<%= matches_group.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/matches_groups/<%= matches_group.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_matches_group/<%= matches_group.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many user_signeds -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Signeds
+      </li>
+
+      <% @user.user_signeds.each do |matches_knockout| %>
+        <li class="list-group-item">
+          <a href="/matches_knockouts/<%= matches_knockout.id %>">
+            <%= matches_knockout.team_one %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/matches_knockouts/<%= matches_knockout.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/matches_knockouts/<%= matches_knockout.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_matches_knockout/<%= matches_knockout.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
