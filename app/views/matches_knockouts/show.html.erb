@@ -75,6 +75,83 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bets_knockout" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for match_id -->
+      <div class="form-group">
+        <label for="match_id" class="control-label">
+          Match
+        </label>
+
+        <%= select_tag(:match_id, options_from_collection_for_select(MatchesKnockout.all, :id, :team_one), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for bet_team_one -->
+      <div class="form-group">
+        <label for="bet_team_one" class="control-label">
+          Bet team one
+        </label>
+
+        <input type="text" id="bet_team_one" name="bet_team_one" placeholder="Bet team one" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for bet_team_two -->
+      <div class="form-group">
+        <label for="bet_team_two" class="control-label">
+          Bet team two
+        </label>
+
+        <input type="text" id="bet_team_two" name="bet_team_two" placeholder="Bet team two" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for team_one -->
+      <div class="form-group">
+        <label for="team_one" class="control-label">
+          Team one
+        </label>
+
+        <input type="text" id="team_one" name="team_one" placeholder="Team one" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for team_two -->
+      <div class="form-group">
+        <label for="team_two" class="control-label">
+          Team two
+        </label>
+
+        <input type="text" id="team_two" name="team_two" placeholder="Team two" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for winner -->
+      <div class="form-group">
+        <label for="winner" class="control-label">
+          Winner
+        </label>
+
+        <input type="text" id="winner" name="winner" placeholder="Winner" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Bets Knockout
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

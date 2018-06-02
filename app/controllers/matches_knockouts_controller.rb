@@ -6,6 +6,7 @@ class MatchesKnockoutsController < ApplicationController
   end
 
   def show
+    @bets_knockout = BetsKnockout.new
     @matches_knockout = MatchesKnockout.find(params[:id])
 
     render("matches_knockouts/show.html.erb")

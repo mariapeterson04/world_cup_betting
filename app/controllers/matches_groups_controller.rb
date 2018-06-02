@@ -6,6 +6,7 @@ class MatchesGroupsController < ApplicationController
   end
 
   def show
+    @bets_group = BetsGroup.new
     @matches_group = MatchesGroup.find(params[:id])
 
     render("matches_groups/show.html.erb")
