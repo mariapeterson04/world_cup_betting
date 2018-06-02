@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Bets Group #<%= @bets_group.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @bets_group.user_id %></dd>
+
+      <dt>Match</dt>
+      <dd><%= @bets_group.match_id %></dd>
+
+      <dt>Bet team one</dt>
+      <dd><%= @bets_group.bet_team_one %></dd>
+
+      <dt>Bet team two</dt>
+      <dd><%= @bets_group.bet_team_two %></dd>
+
+      <dt>Team one</dt>
+      <dd><%= @bets_group.team_one %></dd>
+
+      <dt>Team two</dt>
+      <dd><%= @bets_group.team_two %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @bets_group.date %></dd>
+
+      <dt>Winner</dt>
+      <dd><%= @bets_group.winner %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/bets_groups" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/bets_groups/<%= @bets_group.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_bets_group/<%= @bets_group.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
