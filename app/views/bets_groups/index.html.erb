@@ -22,7 +22,7 @@
 
       <% @bets_groups.each do |bets_group| %>
       <tr>
-        <td><%= bets_group.user_id %></td>
+        <td><%= bets_group.user.email %></td>
         <td><%= bets_group.match_id %></td>
         <td><%= bets_group.bet_team_one %></td>
         <td><%= bets_group.bet_team_two %></td>
