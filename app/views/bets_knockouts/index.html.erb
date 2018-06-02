@@ -32,8 +32,11 @@
         <td><%= bets_knockout.winner %></td>
         <td>
           <a href="/bets_knockouts/<%= bets_knockout.id %>" class="btn btn-primary">Show</a>
-          <a href="/bets_knockouts/<%= bets_knockout.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_bets_knockout/<%= bets_knockout.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == bets_knockout.user %>
+            <a href="/bets_knockouts/<%= bets_knockout.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_bets_knockout/<%= bets_knockout.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
