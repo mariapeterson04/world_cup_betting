@@ -53,8 +53,6 @@ class BetsGroupsController < ApplicationController
 
   def update
     @bets_group = BetsGroup.find(params[:id])
-
-    @bets_group.user_id = params[:user_id]
     @bets_group.match_id = params[:match_id]
     @bets_group.bet_team_one = params[:bet_team_one]
     @bets_group.bet_team_two = params[:bet_team_two]
