@@ -10,7 +10,7 @@ class BetsKnockoutsController < ApplicationController
   end
 
   def index
-    @bets_knockouts = BetsKnockout.all
+    @bets_knockouts = BetsKnockout.page(params[:page]).per(10)
 
     render("bets_knockouts/index.html.erb")
   end

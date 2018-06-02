@@ -1,6 +1,6 @@
 class MatchesGroupsController < ApplicationController
   def index
-    @matches_groups = MatchesGroup.all
+    @matches_groups = MatchesGroup.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@matches_groups.where.not(:city_latitude => nil)) do |matches_group, marker|
       marker.lat matches_group.city_latitude
       marker.lng matches_group.city_longitude
