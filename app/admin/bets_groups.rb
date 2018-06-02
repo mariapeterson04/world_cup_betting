@@ -1,4 +1,6 @@
 ActiveAdmin.register BetsGroup do
+
+ permit_params :user_id, :match_id, :bet_team_one, :bet_team_two, :team_one, :team_two, :date, :winner
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
