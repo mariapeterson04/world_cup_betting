@@ -1,6 +1,16 @@
 class MatchesKnockoutsController < ApplicationController
   def index
     @matches_knockouts = MatchesKnockout.all
+    @location_hash = Gmaps4rails.build_markers(@matches_knockouts.where.not(:city_latitude => nil)) do |matches_knockout, marker|
+      marker.lat matches_knockout.city_latitude
+      marker.lng matches_knockout.city_longitude
+      marker.infowindow "<h5><a href='/matches_knockouts/#{matches_knockout.id}'>#{matches_knockout.team_one}</a></h5><small>#{matches_knockout.city_formatted_address}</small>"
+    end
+    @location_hash = Gmaps4rails.build_markers(@matches_knockouts.where.not(:location_latitude => nil)) do |matches_knockout, marker|
+      marker.lat matches_knockout.location_latitude
+      marker.lng matches_knockout.location_longitude
+      marker.infowindow "<h5><a href='/matches_knockouts/#{matches_knockout.id}'>#{matches_knockout.team_one}</a></h5><small>#{matches_knockout.location_formatted_address}</small>"
+    end
 
     render("matches_knockouts/index.html.erb")
   end

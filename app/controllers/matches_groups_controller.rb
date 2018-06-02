@@ -1,6 +1,16 @@
 class MatchesGroupsController < ApplicationController
   def index
     @matches_groups = MatchesGroup.all
+    @location_hash = Gmaps4rails.build_markers(@matches_groups.where.not(:city_latitude => nil)) do |matches_group, marker|
+      marker.lat matches_group.city_latitude
+      marker.lng matches_group.city_longitude
+      marker.infowindow "<h5><a href='/matches_groups/#{matches_group.id}'>#{matches_group.team_one}</a></h5><small>#{matches_group.city_formatted_address}</small>"
+    end
+    @location_hash = Gmaps4rails.build_markers(@matches_groups.where.not(:location_latitude => nil)) do |matches_group, marker|
+      marker.lat matches_group.location_latitude
+      marker.lng matches_group.location_longitude
+      marker.infowindow "<h5><a href='/matches_groups/#{matches_group.id}'>#{matches_group.team_one}</a></h5><small>#{matches_group.location_formatted_address}</small>"
+    end
 
     render("matches_groups/index.html.erb")
   end
