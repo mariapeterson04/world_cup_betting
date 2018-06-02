@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @bets_group.user_id %></dd>
+      <dd>
+        <% if @bets_group.user.present? %>
+          <a href="/users/<%= @bets_group.user_id %>">
+            <%= @bets_group.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Match</dt>
-      <dd><%= @bets_group.match_id %></dd>
+      <dd>
+        <% if @bets_group.match.present? %>
+          <a href="/matches_groups/<%= @bets_group.match_id %>">
+            <%= @bets_group.match.team_one %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Bet team one</dt>
       <dd><%= @bets_group.bet_team_one %></dd>

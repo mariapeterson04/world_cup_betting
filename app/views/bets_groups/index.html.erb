@@ -22,8 +22,20 @@
 
       <% @bets_groups.each do |bets_group| %>
       <tr>
-        <td><%= bets_group.user.email %></td>
-        <td><%= bets_group.match.team_one %></td>
+        <td>
+          <% if bets_group.user.present? %>
+            <a href="/users/<%= bets_group.user.id %>">
+              <%= bets_group.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bets_group.match.present? %>
+            <a href="/matches_groups/<%= bets_group.match.id %>">
+              <%= bets_group.match.team_one %>
+            </a>
+          <% end %>
+        </td>
         <td><%= bets_group.bet_team_one %></td>
         <td><%= bets_group.bet_team_two %></td>
         <td><%= bets_group.team_one %></td>

@@ -15,7 +15,13 @@
       <dd><%= @result.username %></dd>
 
       <dt>Bet</dt>
-      <dd><%= @result.bet_id %></dd>
+      <dd>
+        <% if @result.bet.present? %>
+          <a href="/bets_groups/<%= @result.bet_id %>">
+            <%= @result.bet.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

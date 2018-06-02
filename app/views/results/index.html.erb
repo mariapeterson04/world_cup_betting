@@ -21,7 +21,13 @@
         <td><%= result.users_score %></td>
         <td><%= result.rank %></td>
         <td><%= result.username %></td>
-        <td><%= result.bet.user_id %></td>
+        <td>
+          <% if result.bet.present? %>
+            <a href="/bets_groups/<%= result.bet.id %>">
+              <%= result.bet.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/results/<%= result.id %>" class="btn btn-primary">Show</a>
           <a href="/results/<%= result.id %>/edit" class="btn btn-warning">Edit</a>
