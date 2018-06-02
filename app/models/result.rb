@@ -1,6 +1,10 @@
 class Result < ApplicationRecord
   # Direct associations
 
+  belongs_to :matchresult,
+             :class_name => "MatchesKnockout",
+             :foreign_key => "bet_id"
+
   belongs_to :groupmatchresult,
              :class_name => "MatchesGroup",
              :foreign_key => "bet_id"
