@@ -11,6 +11,10 @@ class MatchesKnockout < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :bets_knockouts,
+             :source => :user
+
   # Validations
 
 end

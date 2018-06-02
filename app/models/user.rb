@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :user_signeds,
+             :through => :bets_knockouts,
+             :source => :user_signed
+
   has_many   :matches,
              :through => :bets_groups,
              :source => :match
