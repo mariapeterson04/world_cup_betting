@@ -1,4 +1,14 @@
 class BetsGroupsController < ApplicationController
+  before_action :current_user_must_be_bets_group_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_bets_group_user
+    bets_group = BetsGroup.find(params[:id])
+
+    unless current_user == bets_group.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @bets_groups = BetsGroup.all
 

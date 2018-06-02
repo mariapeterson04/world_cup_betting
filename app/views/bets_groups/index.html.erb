@@ -32,8 +32,11 @@
         <td><%= bets_group.winner %></td>
         <td>
           <a href="/bets_groups/<%= bets_group.id %>" class="btn btn-primary">Show</a>
-          <a href="/bets_groups/<%= bets_group.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_bets_group/<%= bets_group.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == bets_group.user %>
+            <a href="/bets_groups/<%= bets_group.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_bets_group/<%= bets_group.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
