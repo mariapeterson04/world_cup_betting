@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @matches_knockout.errors.any? %>
+  <% @matches_knockout.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Matches Knockout</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_matches_knockout" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for team_one -->
+      <div class="form-group">
+        <label for="team_one" class="control-label">
+          Team one
+        </label>
+
+        <input type="text" id="team_one" name="team_one" placeholder="Team one" class="form-control" value="<%= @matches_knockout.team_one %>">
+      </div>
+
+      <!-- Label and input for team_two -->
+      <div class="form-group">
+        <label for="team_two" class="control-label">
+          Team two
+        </label>
+
+        <input type="text" id="team_two" name="team_two" placeholder="Team two" class="form-control" value="<%= @matches_knockout.team_two %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @matches_knockout.date %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @matches_knockout.location %>">
+      </div>
+
+      <!-- Label and input for round -->
+      <div class="form-group">
+        <label for="round" class="control-label">
+          Round
+        </label>
+
+        <input type="text" id="round" name="round" placeholder="Round" class="form-control" value="<%= @matches_knockout.round %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @matches_knockout.city %>">
+      </div>
+
+      <!-- Label and input for goals_one -->
+      <div class="form-group">
+        <label for="goals_one" class="control-label">
+          Goals one
+        </label>
+
+        <input type="text" id="goals_one" name="goals_one" placeholder="Goals one" class="form-control" value="<%= @matches_knockout.goals_one %>">
+      </div>
+
+      <!-- Label and input for goals_two -->
+      <div class="form-group">
+        <label for="goals_two" class="control-label">
+          Goals two
+        </label>
+
+        <input type="text" id="goals_two" name="goals_two" placeholder="Goals two" class="form-control" value="<%= @matches_knockout.goals_two %>">
+      </div>
+
+      <!-- Label and input for winner -->
+      <div class="form-group">
+        <label for="winner" class="control-label">
+          Winner
+        </label>
+
+        <input type="text" id="winner" name="winner" placeholder="Winner" class="form-control" value="<%= @matches_knockout.winner %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Matches Knockout
+      </button>
+      or
+      <a href="/matches_knockouts">Cancel</a>
+    </form>
+  </div>
+</div>

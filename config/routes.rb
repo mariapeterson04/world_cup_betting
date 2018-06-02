@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Matches_knockout resource:
+  # CREATE
+  get "/matches_knockouts/new", :controller => "matches_knockouts", :action => "new"
+  post "/create_matches_knockout", :controller => "matches_knockouts", :action => "create"
+
+  # READ
+  get "/matches_knockouts", :controller => "matches_knockouts", :action => "index"
+  get "/matches_knockouts/:id", :controller => "matches_knockouts", :action => "show"
+
+  # UPDATE
+  get "/matches_knockouts/:id/edit", :controller => "matches_knockouts", :action => "edit"
+  post "/update_matches_knockout/:id", :controller => "matches_knockouts", :action => "update"
+
+  # DELETE
+  get "/delete_matches_knockout/:id", :controller => "matches_knockouts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Result resource:
   # CREATE
   get "/results/new", :controller => "results", :action => "new"
