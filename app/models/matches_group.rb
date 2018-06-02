@@ -1,6 +1,10 @@
 class MatchesGroup < ApplicationRecord
   # Direct associations
 
+  has_many   :bets_groups,
+             :foreign_key => "match_id",
+             :dependent => :destroy
+
   has_one    :result,
              :foreign_key => "bet_id",
              :dependent => :destroy
