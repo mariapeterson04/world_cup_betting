@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :bets_groups,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
