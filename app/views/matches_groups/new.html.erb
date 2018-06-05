@@ -60,7 +60,7 @@
           Groupletter
         </label>
 
-        <input type="text" id="groupletter" name="groupletter" placeholder="Groupletter" class="form-control" value="<%= @matches_group.groupletter %>">
+        <textarea id="groupletter" name="groupletter" placeholder="Groupletter" class="form-control" rows="3"><%= @matches_group.groupletter %></textarea>
       </div>
 
       <!-- Label and input for city -->
@@ -88,15 +88,6 @@
         </label>
 
         <input type="text" id="goals_two" name="goals_two" placeholder="Goals two" class="form-control" value="<%= @matches_group.goals_two %>">
-      </div>
-
-      <!-- Label and input for winner -->
-      <div class="form-group">
-        <label for="winner" class="control-label">
-          Winner
-        </label>
-
-        <input type="text" id="winner" name="winner" placeholder="Winner" class="form-control" value="<%= @matches_group.winner %>">
       </div>
 
       <button class="btn btn-success">
