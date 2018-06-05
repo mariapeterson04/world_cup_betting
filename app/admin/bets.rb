@@ -1,6 +1,6 @@
-ActiveAdmin.register Result do
+ActiveAdmin.register Bet do
 
- permit_params :users_score, :rank, :username, :bet_id
+ permit_params :bet_team_one, :bet_team_two, :user_id, :matches_group_id, :user_score, :rank, :username
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
