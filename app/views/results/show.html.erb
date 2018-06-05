@@ -16,9 +16,9 @@
 
       <dt>Bet</dt>
       <dd>
-        <% if @result.bet.present? %>
-          <a href="/bets_groups/<%= @result.bet_id %>">
-            <%= @result.bet.user_id %>
+        <% if @result.groupmatchresult.present? %>
+          <a href="/matches_groups/<%= @result.bet_id %>">
+            <%= @result.groupmatchresult.team_one %>
           </a>
         <% end %>
       </dd>

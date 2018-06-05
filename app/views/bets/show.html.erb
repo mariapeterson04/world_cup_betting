@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h3>Bet #<%= @bet.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Bet team one</dt>
+      <dd><%= @bet.bet_team_one %></dd>
+
+      <dt>Bet team two</dt>
+      <dd><%= @bet.bet_team_two %></dd>
+
+      <dt>User</dt>
+      <dd>
+        <% if @bet.user.present? %>
+          <a href="/users/<%= @bet.user_id %>">
+            <%= @bet.user.email %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Matches group</dt>
+      <dd>
+        <% if @bet.matches_group.present? %>
+          <a href="/matches_groups/<%= @bet.matches_group_id %>">
+            <%= @bet.matches_group.team_one %>
+          </a>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/bets" class="btn btn-primary">
+        Back
+      </a>
+      <% if current_user == @bet.user %>
+        <a href="/bets/<%= @bet.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_bet/<%= @bet.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>

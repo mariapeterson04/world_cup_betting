@@ -1,23 +1,13 @@
 class MatchesGroupsController < ApplicationController
   def index
     @q = MatchesGroup.ransack(params[:q])
-    @matches_groups = @q.result(:distinct => true).includes(:result, :bets_groups, :users).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@matches_groups.where.not(:city_latitude => nil)) do |matches_group, marker|
-      marker.lat matches_group.city_latitude
-      marker.lng matches_group.city_longitude
-      marker.infowindow "<h5><a href='/matches_groups/#{matches_group.id}'>#{matches_group.team_one}</a></h5><small>#{matches_group.city_formatted_address}</small>"
-    end
-    @location_hash = Gmaps4rails.build_markers(@matches_groups.where.not(:location_latitude => nil)) do |matches_group, marker|
-      marker.lat matches_group.location_latitude
-      marker.lng matches_group.location_longitude
-      marker.infowindow "<h5><a href='/matches_groups/#{matches_group.id}'>#{matches_group.team_one}</a></h5><small>#{matches_group.location_formatted_address}</small>"
-    end
+    @matches_groups = @q.result(:distinct => true).includes(:result, :bets).page(params[:page]).per(10)
 
     render("matches_groups/index.html.erb")
   end
 
   def show
-    @bets_group = BetsGroup.new
+    @bet = Bet.new
     @matches_group = MatchesGroup.find(params[:id])
 
     render("matches_groups/show.html.erb")
@@ -40,7 +30,6 @@ class MatchesGroupsController < ApplicationController
     @matches_group.city = params[:city]
     @matches_group.goals_one = params[:goals_one]
     @matches_group.goals_two = params[:goals_two]
-    @matches_group.winner = params[:winner]
 
     save_status = @matches_group.save
 
@@ -75,7 +64,6 @@ class MatchesGroupsController < ApplicationController
     @matches_group.city = params[:city]
     @matches_group.goals_one = params[:goals_one]
     @matches_group.goals_two = params[:goals_two]
-    @matches_group.winner = params[:winner]
 
     save_status = @matches_group.save
 

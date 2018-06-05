@@ -51,7 +51,7 @@
           Bet
         </label>
 
-        <%= select_tag(:bet_id, options_from_collection_for_select(BetsGroup.all, :id, :user_id, @result.bet_id), :class => "form-control") %>
+        <%= select_tag(:bet_id, options_from_collection_for_select(MatchesGroup.all, :id, :team_one, @result.bet_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

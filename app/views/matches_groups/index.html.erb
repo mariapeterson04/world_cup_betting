@@ -14,11 +14,6 @@
   </div>
 
 <div class="form-group">
-    <%= f.label :winner_cont, "Winner contains" %>
-    <%= f.text_field :winner_cont, :class => "form-control", :placeholder => "Winner contains" %>
-  </div>
-
-<div class="form-group">
   <%= f.label :goals_two, "Goals two" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -43,8 +38,18 @@
 </div>
 
 <div class="form-group">
+    <%= f.label :city_cont, "City contains" %>
+    <%= f.text_field :city_cont, :class => "form-control", :placeholder => "City contains" %>
+  </div>
+
+<div class="form-group">
     <%= f.label :groupletter_cont, "Groupletter contains" %>
     <%= f.text_field :groupletter_cont, :class => "form-control", :placeholder => "Groupletter contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :location_cont, "Location contains" %>
+    <%= f.text_field :location_cont, :class => "form-control", :placeholder => "Location contains" %>
   </div>
 
 <div class="form-group">
@@ -145,9 +150,16 @@
 </div>
 
 <div class="form-group">
-      <%= f.label :users_email_cont, "User email contains" %>
-      <%= f.text_field :users_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+  <%= f.label :bet_team_one, "Bet Bet team one" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :bets_bet_team_one_gteq, :class => "form-control", :placeholder => "Bet Bet team one greater than or equal to" %>
     </div>
+    <div class='col-md-6'>
+      <%= f.text_field :bets_bet_team_one_lteq, :class => "form-control", :placeholder => "Bet Bet team one less than or equal to" %>
+    </div>
+  </div>
+</div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
@@ -171,7 +183,6 @@
         <th>City</th>
         <th>Goals one</th>
         <th>Goals two</th>
-        <th>Winner</th>
         <th>Actions</th>
       </tr>
 
@@ -185,7 +196,6 @@
         <td><%= matches_group.city %></td>
         <td><%= matches_group.goals_one %></td>
         <td><%= matches_group.goals_two %></td>
-        <td><%= matches_group.winner %></td>
         <td>
           <a href="/matches_groups/<%= matches_group.id %>" class="btn btn-primary">Show</a>
           <a href="/matches_groups/<%= matches_group.id %>/edit" class="btn btn-warning">Edit</a>
@@ -197,14 +207,3 @@
     <%= paginate @matches_groups, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>
-
-<script src="//maps.google.com/maps/api/js?v=3.24&key=AIzaSyCOTPWiuvyyo6sKoIBzKA4-1ol-vTOIOlM"></script>
-<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-<script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'location_map'}}, function(){
-    markers = handler.addMarkers(<%= raw @location_hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-</script>

@@ -1,0 +1,58 @@
+<!-- Validation failure messages -->
+<% if @bet.errors.any? %>
+  <% @bet.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Bet #<%= @bet.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_bet/<%= @bet.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bet_team_one -->
+      <div class="form-group">
+        <label for="bet_team_one" class="control-label">
+          Bet team one
+        </label>
+
+        <input type="text" id="bet_team_one" name="bet_team_one" placeholder="Bet team one" class="form-control" value="<%= @bet.bet_team_one %>">
+      </div>
+
+      <!-- Label and input for bet_team_two -->
+      <div class="form-group">
+        <label for="bet_team_two" class="control-label">
+          Bet team two
+        </label>
+
+        <input type="text" id="bet_team_two" name="bet_team_two" placeholder="Bet team two" class="form-control" value="<%= @bet.bet_team_two %>">
+      </div>
+
+      
+      
+
+      <!-- Label and input for matches_group_id -->
+      <div class="form-group">
+        <label for="matches_group_id" class="control-label">
+          Matches group
+        </label>
+
+        <%= select_tag(:matches_group_id, options_from_collection_for_select(MatchesGroup.all, :id, :team_one, @bet.matches_group_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Bet
+      </button>
+      or
+      <a href="/bets/<%= @bet.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,21 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
-  has_many   :bets_knockouts,
-             :dependent => :destroy
-
-  has_many   :bets_groups,
+  has_many   :bets,
              :dependent => :destroy
 
   # Indirect associations
-
-  has_many   :user_signeds,
-             :through => :bets_knockouts,
-             :source => :user_signed
-
-  has_many   :matches,
-             :through => :bets_groups,
-             :source => :match
 
   # Validations
 
